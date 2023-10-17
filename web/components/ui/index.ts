@@ -19,6 +19,8 @@ import {
   SheetTitle,
   SheetDescription,
 } from './sheet'
+import { Avatar, AvatarImage, AvatarFallback } from './avatar'
+import { Separator } from './separator'
 
 export {
   Card,
@@ -38,4 +40,8 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  Separator,
 }
