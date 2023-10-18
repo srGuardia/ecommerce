@@ -21,6 +21,8 @@ import {
 } from './sheet'
 import { Avatar, AvatarImage, AvatarFallback } from './avatar'
 import { Separator } from './separator'
+import { Badge } from './badge'
+import { ProductItem } from './product-item'
 
 export {
   Card,
@@ -44,4 +46,6 @@ export {
   AvatarImage,
   AvatarFallback,
   Separator,
+  Badge,
+  ProductItem,
 }

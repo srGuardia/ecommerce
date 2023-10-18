@@ -55,7 +55,7 @@ export const Header = ({ ...rest }: HeaderProps) => {
   const { data } = useSession()
   return (
     <Card
-      className='sticky top-0 flex w-full items-center justify-between p-5'
+      className='sticky top-0 z-10 flex w-full items-center justify-between p-5'
       {...rest}
     >
       <Sheet>

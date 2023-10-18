@@ -46,4 +46,10 @@
   html {
     @apply h-full;
   }
+  &::-webkit-scrollbar {
+    @apply w-1 bg-muted;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-primary;
+  }
 }
