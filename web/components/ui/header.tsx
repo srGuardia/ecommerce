@@ -24,10 +24,21 @@ import {
 } from 'lucide-react'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { Session } from 'next-auth'
+import { useRouter } from 'next/navigation'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
-const menuItems = (data?: Session | null) => [
+type MenuItemProps = {
+  title: string
+  icon: JSX.Element
+  action?: (
+    data?: Session | null,
+    routerData?: AppRouterInstance,
+  ) => void | Promise<void>
+}
+
+const menuItems = (data?: Session | null): MenuItemProps[] => [
   {
     title: !data ? 'Fazer login' : 'Fazer logout',
     icon: !data ? <LogInIcon size={16} /> : <LogOutIcon size={16} />,
@@ -40,6 +51,7 @@ const menuItems = (data?: Session | null) => [
   {
     title: 'Início',
     icon: <HomeIcon size={16} />,
+    action: (_, routerData) => routerData?.push('/'),
   },
   {
     title: 'Ofertas',
@@ -53,6 +65,8 @@ const menuItems = (data?: Session | null) => [
 
 export const Header = ({ ...rest }: HeaderProps) => {
   const { data } = useSession()
+  const router = useRouter()
+
   return (
     <Card
       className='sticky top-0 z-10 flex w-full items-center justify-between p-5'
@@ -95,7 +109,7 @@ export const Header = ({ ...rest }: HeaderProps) => {
                 key={index}
                 variant='outline'
                 className='w-full justify-start gap-2'
-                onClick={() => menu?.action && menu?.action(data)}
+                onClick={() => menu?.action && menu?.action(data, router)}
               >
                 {menu?.icon}
                 {menu?.title}

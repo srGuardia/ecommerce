@@ -23,6 +23,7 @@ import { Avatar, AvatarImage, AvatarFallback } from './avatar'
 import { Separator } from './separator'
 import { Badge } from './badge'
 import { ProductItem } from './product-item'
+import { Footer } from './footer'
 
 export {
   Card,
@@ -48,4 +49,5 @@ export {
   Separator,
   Badge,
   ProductItem,
+  Footer,
 }
