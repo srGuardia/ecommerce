@@ -60,6 +60,7 @@ const menuItems = (data?: Session | null): MenuItemProps[] => [
   {
     title: 'Catalógo',
     icon: <ListOrderedIcon size={16} />,
+    action: (_, routerData) => routerData?.push('/catalog'),
   },
 ]
 
