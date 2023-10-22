@@ -12,6 +12,7 @@ import {
   AvatarImage,
   AvatarFallback,
   Separator,
+  SheetClose,
 } from '@/components/ui'
 import {
   HomeIcon,
@@ -26,6 +27,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import { Session } from 'next-auth'
 import { useRouter } from 'next/navigation'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import Link from 'next/link'
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -106,23 +108,26 @@ export const Header = ({ ...rest }: HeaderProps) => {
 
           <div className='mt-2 flex flex-col gap-2'>
             {menuItems(data)?.map((menu, index) => (
-              <Button
-                key={index}
-                variant='outline'
-                className='w-full justify-start gap-2'
-                onClick={() => menu?.action && menu?.action(data, router)}
-              >
-                {menu?.icon}
-                {menu?.title}
-              </Button>
+              <SheetClose key={index} asChild>
+                <Button
+                  variant='outline'
+                  className='w-full justify-start gap-2'
+                  onClick={() => menu?.action && menu?.action(data, router)}
+                >
+                  {menu?.icon}
+                  {menu?.title}
+                </Button>
+              </SheetClose>
             ))}
           </div>
         </SheetContent>
       </Sheet>
 
-      <h1 className='text-lg font-semibold'>
-        <span className='text-primary'>FSW</span>&nbsp;Store
-      </h1>
+      <Link href='/'>
+        <h1 className='text-lg font-semibold'>
+          <span className='text-primary'>FSW</span>&nbsp;Store
+        </h1>
+      </Link>
 
       <Button size='icon' variant='outline'>
         <ShoppingCartIcon />
