@@ -17,8 +17,8 @@ interface SheetProps extends SheetPrimitive.DialogPortalProps {
   className?: string
 }
 
-const SheetPortal = ({ className, ...props }: SheetProps) => (
-  <SheetPrimitive.Portal className={cn(className)} {...props} />
+const SheetPortal = ({ ...props }: SheetProps) => (
+  <SheetPrimitive.Portal {...props} />
 )
 SheetPortal.displayName = SheetPrimitive.Portal.displayName
 
